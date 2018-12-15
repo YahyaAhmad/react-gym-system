@@ -1,0 +1,123 @@
+.react-tabs__tab-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.react-tabs__tab-list>.react-tabs__tab{
+    display: inline-block;
+    background-color: rgb(4, 29, 139);
+    padding: 8px 0;
+    width: 90px;
+    border: 1px solid rgba(167, 153, 247, 0.13);
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    transition: 0.05s;
+    user-select: none;
+}
+
+.react-tabs__tab-list>.react-tabs__tab:hover{
+
+    background-color: rgb(62, 84, 179);
+    cursor: pointer;
+
+}
+
+.react-tabs__tab{
+    display: block;
+}
+
+.react-tabs__tab.react-tabs__tab--selected{
+    background-color: rgb(62, 84, 179);
+    
+}
+
+.react-tabs__tab-panel{
+    transition: 0.25s;
+    
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    
+}
+
+.react-tabs__tab-panel--selected{
+    transition-delay: 0.25s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.main_tab{
+
+}
+
+.gym_tab{
+    position: absolute;
+    margin-top:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+
+.add-button{
+    font-size: 20pt;
+    color: rgb(24, 184, 24);
+    transition: color 0.2s;
+    position: relative;
+    cursor: pointer;
+
+    margin-left: 15px;
+}
+
+.add-button:hover{
+    color: rgb(30, 218, 30);
+}
+
+.remove-button{
+    font-size: 20pt;
+    color: rgb(184, 24, 24);
+    transition: color 0.2s;
+    position: relative;
+    cursor: pointer;
+}
+
+.remove-button:hover{
+    color: rgb(218, 30, 30);
+}
+
+.table-transition-enter{
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.table-transition-enter.table-transition-enter-active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.table-transition-leave{
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+}
+
+.table-transition-leave-active{
+    opacity: 0;
+    visibility: hidden
+}
+
+table{
+    position: relative;
+}
+
+.month-item{
+    transition: 0.5s;
+
+}

@@ -1,0 +1,34 @@
+.react-dynamic-popup-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.35s;
+    z-index: 100000;
+}
+
+.react-dynamic-popup-wrapper.visible{
+   opacity: 1;
+   visibility: visible;
+}
+
+.react-dynamic-popup-wrapper .react-dynamic-popup-shadow{
+    background: rgba(0, 0, 0, 0.25);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+}
+
+.react-dynamic-popup-wrapper .react-dynamic-popup{
+    opacity: 1;
+    position: absolute;
+
+}

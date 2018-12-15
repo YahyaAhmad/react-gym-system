@@ -1,0 +1,58 @@
+.options_tab table{
+    table-layout: fixed;
+    display: inline-table;
+    width:100%;
+}
+
+.options_tab table td{
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+.table_header{
+    background-color:rgb(197, 211, 255);
+    color: rgb(36, 7, 116);
+    border: 1px solid rgb(199, 199, 199);
+
+}
+
+.options_tab tr td:first-child{
+    width:50px;
+}
+
+
+.options_tab .table_header td{
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.options_header{
+    margin-bottom: 28px;
+    display:flex;
+    width:100%;
+    align-items: center;
+    position: relative;
+}
+
+.options_header>*{
+    margin-right: 10px;
+}
+
+.options_footer{
+    margin-top: 20px;
+    display:flex;
+    width:100%;
+}
+
+a{
+    color: rgb(0, 0, 155);
+}
+
+a:hover{
+    color: rgb(0, 0, 155);
+}
+
+.change-login-button{
+    font-size: 14pt;
+    
+}

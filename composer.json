@@ -1,0 +1,7 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.0",
+        "chillerlan/php-qrcode": "2.0.x",
+        "t0k4rt/phpqrcode": ""
+    }
+}

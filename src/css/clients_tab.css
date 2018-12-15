@@ -1,0 +1,114 @@
+.clients_tab table{
+    table-layout: fixed;
+    display: inline-table;
+    width:100%;
+}
+
+.clients_tab table td{
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+.table_header{
+    background-color:rgb(197, 211, 255);
+    color: rgb(36, 7, 116);
+    border: 1px solid rgb(199, 199, 199);
+
+}
+
+.clients_tab table td:last-child{
+    width:80px;
+}
+
+
+.clients_tab .table_header td{
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.clients_header{
+    margin-bottom: 28px;
+    display:flex;
+    width:100%;
+    align-items: center;
+}
+
+.clients_header>*{
+    margin-right: 10px;
+}
+
+.clients_footer{
+    margin-top: 20px;
+    display:flex;
+    width:100%;
+}
+
+.add-clients-form{
+    max-width: 750px;
+    width: 100vw;
+    padding: 60px 40px 15px 40px !important;
+
+}
+
+.add-clients-form input,select{
+    width: 100%;
+    height: 40px;
+    font-size: 16pt;
+    padding-left: 5px;
+    margin-bottom: 16px;
+}
+
+button{
+    font-size: 16pt;
+    margin-top: 20px;
+    padding: 5px 10px;
+    background: #313875;
+    color: white;
+    border: 0;
+    outline: 2px solid #5760b100;
+    transition: 0.5s;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+button:hover{
+    outline: 2px solid #5760b1;
+}
+
+.add-clients-form select{
+   width: 140px;
+}
+
+.add-clients-form .form-header{
+    text-align: right;
+    
+}
+
+.add-clients-form svg{
+    position: absolute;
+    top:15px;
+    right: 20px;
+    transform: scale(1.4);
+    cursor: pointer;
+}
+
+.month-selector-wrapper{
+    display: flex;
+}
+
+.month-selector-wrapper label{
+    font-size: 16pt;
+    position: relative;
+    top: 3px;
+    margin-right: 15px;
+}
+
+.send-qrcode{
+    font-size: 16pt;
+    color: rgb(151, 151, 151);
+}
+
+.add-clients-form .lds-ring{
+    left: 30px;
+    top:32px;
+}

@@ -1,0 +1,56 @@
+.gym-main-form{
+    
+    width: 90vw;
+    min-width: 300px;
+    height: 510px;
+}
+
+.clients_info{
+    width: 45vw;
+    max-width: 400px;
+    margin-top: 15px;
+    padding: 5px;
+    font-size: 14pt;
+    padding-left: 20px;
+
+}
+
+.client_stat{
+    display: inline-block;
+    width: 130px;
+}
+
+.clients_info>div>div{
+    display: inline-block;
+}
+
+.clients_info>div>:last-child{
+    display: block;
+}
+
+.client_status{
+    text-align: center;
+    margin-top: 18px;
+    font-size: 18pt;
+    font-weight: bold;
+    color: #24e224;
+    text-shadow: 1px 1px 2px rgb(14, 14, 14);
+}
+
+.qrcode{
+    color: rgb(106, 106, 255);
+    text-decoration: underline; 
+    cursor: pointer;
+    transition: 0.15s;  
+
+}
+.qrcode:hover{
+    color: rgb(15, 15, 122);
+
+}
+
+.rejected{
+    color:rgb(255, 0, 0);
+}
+
+
