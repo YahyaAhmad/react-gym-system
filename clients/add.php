@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require '../vendor/autoload.php';
-include "../phpqrcode/qrlib.php";
+include "../qrcodelib/qrlib.php";
 
 
 ini_set('display_errors', 1);
