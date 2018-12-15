@@ -8,6 +8,7 @@ import '../../../css/main_tab.css'
 
 import $ from 'jquery'
 import globalStore from '../../../store';
+import { getINOUTS } from '../../externals/Helper';
 
 
 class MainTab extends Component {
@@ -35,6 +36,7 @@ class MainTab extends Component {
                     this.successAudio.play();
                     clearTimeout(this.successTimeout);
                     this.successTimeout = setTimeout(this.hideSuccess, 1000);
+                    getINOUTS();
                 } else{
                     this.errorAudio.play();
                 }

@@ -3,6 +3,7 @@ import Axios from 'axios';
 import globalStore from '../../../../store';
 import MonthItem from './MonthItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import { getMonths } from '../../../externals/Helper';
 
 
 class MonthList extends Component {
@@ -33,26 +34,13 @@ class MonthList extends Component {
         }
     }
 
-    componentWillMount() {
-
+    componentDidMount() {
         globalStore.subscribe(() => {
             this.setState({
                 months: globalStore.getState().months,
             })
         })
-
-    }
-
-    componentDidMount() {
-        Axios.get('http://localhost/gym/offers/get.php').then(res => {
-
-            let action = {
-                type: 'SET_MONTHS',
-                months: res.data,
-                delating: false,
-            }
-            globalStore.dispatch(action);
-        });
+        getMonths();
 
     }
 

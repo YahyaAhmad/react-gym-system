@@ -14,9 +14,28 @@ export default (state, action) => {
         case 'ADD_CLIENT':
             state.gymClients.push(action.client);
             break;
+        case 'DELETE_CLIENT':
+            state.gymClients = arrayRemove(action.id,state.gymClients);
+            state.mouseLoad = false;
+            break;
+        case 'MOUSE_LOAD':
+            state.mouseLoad = true;
+            break;
+        case 'SET_INOUTS':
+            state.inouts = action.inouts;
+            break;
         default:
             return state;
     }
     return state
+}
+
+function arrayRemove(id,clients){
+    for (var i = 0; i<clients.length; i++){
+        if(clients[i].ID == id){
+            clients.splice(i,1);
+            return clients;
+        }
+    }
 }
 

@@ -3,17 +3,10 @@
 require('../connect.php');
 $code = $_POST['qrcode'];
 $type = "None";
-$sql = "SELECT * from User JOIN Client where Code = '{$code}'";
+$sql = "SELECT * from User JOIN Client on User.ID = Client.UserID where Code = '{$code}'";
 $result = $con->query($sql);
 $rows = $result->num_rows;
-if($rows<=0){
-    $sql = "SELECT * from User JOIN Coach where Code='{$code}'";
-    $result = $con->query($sql);
-    $rows = $result->num_rows;
-    $type = "Coach";
-} else {
-    $type = "Client";
-}
+$type = "Client";
 $data = [ 'status' => '' ];
 
 $first_row = $result->fetch_assoc();
@@ -21,7 +14,7 @@ $first_row = $result->fetch_assoc();
 if($rows>0){
     if($type!='Coach'){
         $date = strtotime($first_row["Exp_Date"]);
-        $curDate = date('Y-m-d').time();;
+        $curDate = time();
         if($date>$curDate)
             $data['status'] = "accepted";
         else
@@ -34,6 +27,15 @@ if($rows>0){
     $data['email'] = $first_row['Email'];
     $data['code'] = $first_row['Code'];
     $data['type'] = $type;
+    $sql = "Select * from INOUTS where UserID = '{$first_row['UserID']}' order by ID desc";
+    $inout = $con->query($sql);
+    $curStatus = $inout->fetch_assoc();
+    $status = $curStatus['Status']==0?1:0;
+    $curDate = new DateTime();
+    $curDateStr = $curDate->format('y-m-d H:i:s');
+    $sql = "INSERT INTO INOUTS (`ID`, `UserID`, `Status`, `Date`) VALUES (NULL, '{$first_row['UserID']}', '{$status}', '{$curDateStr}');";
+    $inout = $con->query($sql);
+    $data['inout'] = $status;
 }
 else{
     $type = "None";

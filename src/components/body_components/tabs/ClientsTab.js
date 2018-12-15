@@ -13,17 +13,32 @@ class ClientsTab extends Component {
         this.state = {
             gymClients: [],
         }
+        this.searchClient = this.searchClient.bind(this)
     }
 
-    componentWillMount() {
+    componentDidMount() {
         globalStore.subscribe(() => {
             this.setState({
                 gymClients: globalStore.getState().gymClients,
             })
         })
         getClients();
-
-
+    }
+    
+    searchClient(event){
+        let value = event.target.value;
+        let gymClients = globalStore.getState().gymClients;
+        value = value.toLowerCase();
+        let filteredGymClients = gymClients.filter( client => {
+            if(client.Full_Name.toLowerCase().search(value)!=-1){
+                return true;
+            } else {
+                return false;
+            }
+        } )
+        this.setState({
+            gymClients: filteredGymClients,
+        })
     }
 
     render() {
@@ -35,7 +50,7 @@ class ClientsTab extends Component {
         return (
             <div className="clients_tab gym_tab">
                 <div className="clients_header">
-                    <input placeholder="Search..."></input>
+                    <input onChange={this.searchClient} placeholder="Search..."></input>
                     <AddClientButton />
                 </div>
                 <table>

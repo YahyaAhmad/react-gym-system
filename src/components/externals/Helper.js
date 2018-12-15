@@ -13,4 +13,33 @@ export function getClients() {
         globalStore.dispatch(action);
 
     })
+
+}
+
+export function mouseLoad() {
+    globalStore.dispatch({
+        type: 'MOUSE_LOAD',
+    })
+}
+
+export function getMonths() {
+    Axios.get('http://localhost/gym/offers/get.php').then(res => {
+
+        let action = {
+            type: 'SET_MONTHS',
+            months: res.data,
+            delating: false,
+        }
+        globalStore.dispatch(action);
+    });
+}
+
+export function getINOUTS() {
+    Axios.get('http://localhost/gym/inouts/get.php').then(res => {
+        let action = {
+            type: 'SET_INOUTS',
+            inouts: res.data,
+        }
+        globalStore.dispatch(action);
+    });
 }
