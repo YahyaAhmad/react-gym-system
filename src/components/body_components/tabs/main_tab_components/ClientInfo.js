@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import globalStore from '../../../../store/index';
 import axios from 'axios';
+import Popup from '../../../externals/Popup';
+import Subscription from './Subscription';
 
 class ClientInfo extends Component {
     constructor() {
         super()
         this.state = {
             scannedClient: null,
+            showSubscriptionForm: false,
         }
+        this.showSubscriptionForm = this.showSubscriptionForm.bind(this)
     }
 
     componentWillMount() {
@@ -18,9 +22,16 @@ class ClientInfo extends Component {
         })
     }
 
+    showSubscriptionForm(){
+        this.setState({
+            showSubscriptionForm: true,
+        })
+    }
+
     render() {
         let renderedInfo = "";
         let scannedClient = this.state.scannedClient
+        console.log(scannedClient);
         if (scannedClient) {
             if (scannedClient.status != 'invalid_qrcode')
                 renderedInfo = <div>
@@ -38,7 +49,7 @@ class ClientInfo extends Component {
                     </div>
                     <div className="client_code" >
                         <span className="client_stat">Code:</span>
-                        <span className="qrcode">{scannedClient.code}</span>
+                        <span className="qrcode" onClick={this.showSubscriptionForm}>{scannedClient.code}</span>
                     </div>
                     <div className={"client_status" + (scannedClient.status=='rejected'?" rejected":"")} >{capitalizeFirstLetter(scannedClient.status)}</div>
                 </div>
@@ -50,6 +61,9 @@ class ClientInfo extends Component {
         return (
             <div className="clients_info">
                 {renderedInfo}
+                <Popup isShown={this.state.showSubscriptionForm} onClickOut={() => this.setState({showSubscriptionForm:false})}>
+                    <Subscription data={this.state.scannedClient} onCreate={() => this.setState({showSubscriptionForm:false})}/>
+                </Popup>
             </div>
         );
     }

@@ -108,6 +108,10 @@ button:hover{
     color: rgb(151, 151, 151);
 }
 
+.qrcode{
+    font-size: 8pt;
+}
+
 .add-clients-form .lds-ring{
     left: 30px;
     top:32px;
