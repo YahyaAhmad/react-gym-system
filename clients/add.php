@@ -15,6 +15,7 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 $name = isset($_POST['name'])?$_POST['name']:'';
 $email = isset($_POST['email'])?$_POST['email']:'';
 $month = isset($_POST['month'])?$_POST['month']:'';
+$monthID = isset($_POST['monthID'])?$_POST['monthID']:'';
 $code = getGUID();
 
 $sql = "Insert into User (Full_Name, Email, Code) Values ('{$name}', '{$email}', '{$code}')";
@@ -33,6 +34,8 @@ $result = $con->query($sql);
 $curDate = new DateTime();
 $curDateStr = $curDate->format('y-m-d H:i:s');
 $sql = "INSERT INTO INOUTS (`ID`, `UserID`, `Status`, `Date`) VALUES (NULL, '{$lastID}', '0', '{$curDateStr}');";
+$result = $con->query($sql);
+$sql = "INSERT INTO Finance (`ID`, `UserID`, `OfferID`, `Date`) VALUES (NULL, '{$lastID}', {$monthID}, '{$curDateStr}');";
 $result = $con->query($sql);
 $client['Full_Name'] = $name;
 $client['Email'] = $email;

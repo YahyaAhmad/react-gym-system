@@ -17,7 +17,7 @@ class MonthSelector extends Component {
     }
     render() {
         let options = this.state.months.map( item => {
-            return <option value={item.Duration} key={item.ID}>{item.Duration} Months</option>
+            return <option value={item.ID} duration={item.Duration} key={item.ID}>{item.Duration} Months</option>
         } )
         return (
             <div class="month-selector-wrapper">

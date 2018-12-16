@@ -1,7 +1,7 @@
 <?php
 
 require('../connect.php');
-$sql = "Select User.Full_Name,INOUTS.ID,INOUTS.Status,INOUTS.Date from User,INOUTS where User.ID = INOUTS.UserID order by INOUTS.ID";
+$sql = "Select User.Full_Name,Finance.ID,Finance.Date,Offer.Price, Offer.Duration from User,Finance,Offer where User.ID = Finance.UserID and Finance.OfferID = Offer.ID order by Finance.ID";
 $result = $con->query($sql);
 
 $toReturn = array();

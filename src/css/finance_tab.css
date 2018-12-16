@@ -1,0 +1,28 @@
+.finance_tab table{
+    table-layout: fixed;
+    display: inline-table;
+    width:100%;
+}
+
+.finance_tab table td{
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+.table_header{
+    background-color:rgb(197, 211, 255);
+    color: rgb(36, 7, 116);
+    border: 1px solid rgb(199, 199, 199);
+
+}
+
+.finance_tab .table_header td{
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.clients_header .fa-times-circle{
+    font-size: 16pt;
+    color: #343279;
+    cursor: pointer;
+}

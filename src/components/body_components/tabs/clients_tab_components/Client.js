@@ -9,6 +9,7 @@ class Client extends Component {
     constructor(){
         super()
         this.deleteItem = this.deleteItem.bind(this)
+        this.resendQrcode = this.resendQrcode.bind(this)
     }
 
     componentWillReceiveProps(){
@@ -32,6 +33,25 @@ class Client extends Component {
         })
     }
 
+    resendQrcode(){
+        let confirmSend = window.confirm('You are about to resend the QRCode.');
+        if(confirmSend){
+            let data = {
+                email: this.props.data.Email,
+                code: this.props.data.Code,
+                date: this.props.data.Exp_Date,
+
+            }
+            Axios.post('http://localhost/gym/clients/resend.php', data, {
+                headers:{
+                    'Content-Type': 'application/x-www-form-urlencoded', 
+                }
+            }).then( () => {
+                alert("Email send successfully!");
+            } )
+        }
+    }
+
     render() {
         let client = this.props.data;
         return (
@@ -39,7 +59,7 @@ class Client extends Component {
                 <td>{client.Full_Name}</td>
                 <td>{client.Email}</td>
                 <td>{client.Exp_Date}</td>
-                <td><i className="fas fa-envelope send-qrcode"></i></td>
+                <td><i onClick={this.resendQrcode} className="fas fa-envelope send-qrcode"></i></td>
                 <td><i onClick={this.deleteItem} class="fas fa-minus-square remove-button"></i></td>
             </tr>
         );

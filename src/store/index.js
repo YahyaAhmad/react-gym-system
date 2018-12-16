@@ -5,6 +5,7 @@ const initialState = {
   gymClients:[],
   months:[],
   inouts:[],
+  finance:[],
 }
 const globalStore = createStore(reducer,initialState)
 export default globalStore

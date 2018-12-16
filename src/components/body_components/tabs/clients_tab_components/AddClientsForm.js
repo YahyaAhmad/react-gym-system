@@ -6,7 +6,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import Axios from 'axios';
 import Loader from '../../Loader';
 import globalStore from '../../../../store';
-import { getClients } from '../../../externals/Helper';
+import { getClients, getINOUTS, getFinance } from '../../../externals/Helper';
 library.add(faTimes);
 
 class AddClientsForm extends Component {
@@ -17,6 +17,7 @@ class AddClientsForm extends Component {
             name: '',
             email: '',
             month: 'none',
+            monthID: null,
             isLoading: false,
         }
         this.inputUpdate = this.inputUpdate.bind(this)
@@ -32,7 +33,8 @@ class AddClientsForm extends Component {
                 state.email = event.target.value;
                 break;
             case 'month':
-                state.month = event.target.value;
+                state.month = event.target.options[event.target.selectedIndex].getAttribute('duration');
+                state.monthID = event.target.value;
                 break;
         }
         this.setState(state);
@@ -59,6 +61,8 @@ class AddClientsForm extends Component {
             }
         }).then((res) => {
             getClients();
+            getINOUTS();
+            getFinance();
             this.setState({isLoading:false});
             this.props.onCreate();
         })
@@ -66,6 +70,8 @@ class AddClientsForm extends Component {
 
     render() {
         let { name, email, month, isLoading } = this.state;
+        console.log(this.state)
+
         return (
 
             <div className='add-clients-form gym-form'>

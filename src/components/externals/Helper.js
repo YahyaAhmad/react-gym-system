@@ -43,3 +43,13 @@ export function getINOUTS() {
         globalStore.dispatch(action);
     });
 }
+
+export function getFinance() {
+    Axios.get('http://localhost/gym/finance/get.php').then(res => {
+        let action = {
+            type: 'SET_FINANCE',
+            inouts: res.data,
+        }
+        globalStore.dispatch(action);
+    });
+}

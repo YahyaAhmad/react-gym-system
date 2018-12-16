@@ -24,6 +24,9 @@ export default (state, action) => {
         case 'SET_INOUTS':
             state.inouts = action.inouts;
             break;
+        case 'SET_FINANCE':
+            state.finance = action.inouts;
+            break;
         default:
             return state;
     }
